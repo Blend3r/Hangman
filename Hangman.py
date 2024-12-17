@@ -1,7 +1,12 @@
 import random
-import os
 import pygame
+import os
+import sys
 
+# Set the working directory to the script's directory
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+
+pygame.init()
 pygame.mixer.init()
 
 def clear_screen():
@@ -19,11 +24,11 @@ def making_a_guess():
         if guess.lower() == chosen_word[x]:
             blank_list[x] = guess.lower()
             correct_guess = True
-            pygame.mixer.Sound('right.wav').play()
+            pygame.mixer.Sound('sounds/right.wav').play()
         x += 1
     if correct_guess == False:
         print(f"There is no {guess}, sorry.")
-        pygame.mixer.Sound('wrong.wav').play()
+        pygame.mixer.Sound('sounds/wrong.wav').play()
         update_display += 1
     x = 0
 
@@ -143,7 +148,7 @@ def play_game():
         if blank_list == chosen_word:
             print("YOU WIN!")
             pygame.mixer.stop()
-            pygame.mixer.Sound('win.wav').play()
+            pygame.mixer.Sound('sounds/win.wav').play()
             break
         guess = input("Make another guess? ")
         making_a_guess()
@@ -154,7 +159,7 @@ def play_game():
     if update_display == 6:
         print("GAME OVER.")
         pygame.mixer.stop()
-        pygame.mixer.Sound('lose.wav').play()
+        pygame.mixer.Sound('sounds/lose.wav').play()
         print(f"The word was: {''.join(chosen_word)}")
 
 
