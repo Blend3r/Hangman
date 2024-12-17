@@ -13,6 +13,6 @@ This is a Python-based Hangman game where you have to guess a word one letter at
 - `pygame` library (for sound effects)
 
 ### Install the Required Libraries
-Before running the game, make sure you have Python and `pygame` installed on your machine. You can install `pygame` using pip:
+Before running the game, make sure to extract the files and take the folder out of the main folder, and make sure you have Python and `pygame` installed on your machine. You can install `pygame` using pip:
 ```bash
 pip install pygame
